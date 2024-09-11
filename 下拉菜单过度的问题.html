@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下拉菜单</title>
+    <style>
+        .dropdown{
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-input{
+            width: 200px;
+            height: 30px;
+            border: 1px solid #ccc;
+        }
+        .dropdown-menu{
+            position: absolute;
+            top: 30px;
+            left: 0;
+            width: 200px;
+            border: 1px solid #ccc;
+            display: block;
+            height: 0;
+            overflow: hidden;
+            transition: 1s height linear;
+        }
+        .dropdown-menu ul{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .dropdown-menu li{
+            padding: 5px;
+        }
+        input:focus~.dropdown-menu{
+            max-height: calc(100vh );
+        }
+    </style>
+</head>
+<body>
+    <div class="dropdown">
+        <input type="text" class="dropdown-input"/>
+        <div class="dropdown-menu">
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOR性能</title>
+    <script type="text/javascript">
+        let num=0;
+        let start=performance.now();
+        console.log('start...');
+        for(let i=0;i<100000000;i++){
+            num++;
+        }
+        console.log(num);
+        console.log(performance.now()-start);
+
+
+        let num2=0;
+        let start2=performance.now();
+        console.log('start2...');
+     
+        console.log(num2);
+        console.log(performance.now()-start2);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

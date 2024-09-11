@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        let i=0;
+        let isStart=true;
+        let flag;
+       async function time0(){
+
+           flag=setInterval(() => {
+                i++;
+                document.getElementById('test').innerHTML = new Date().toLocaleTimeString()+'  '+i;
+            }, 1000);
+       }
+       time0();
+    
+       let i2=0;
+
+      async function time(){
+        
+
+        if(i2<=1000000000){
+            requestAnimationFrame(() => {
+                i2++;
+                document.getElementById('test2').innerHTML = new Date().toLocaleTimeString()+'  '+i2;
+                time();
+            });
+        }
+      }
+      setTimeout(() => {
+        time();
+      }, 100);
+     
+
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'hidden') {
+          console.log('页面隐藏');
+          clearInterval(flag);
+        } else {
+          console.log('页面可见');
+          time0();
+        }
+      });
+
+        // const intervalTime = 16; // 尝试模拟 60fps
+        // let lastTime = performance.now();
+        // let frames = 0;
+        // let drops = 0;
+
+        // function heavyOperation() {
+        //     let result = 0;
+        //     for (let i = 0; i < 100000; i++) {
+        //         result += Math.random();
+        //     }
+        // }
+
+        // const intervalId = setInterval(() => {
+        //     const currentTime = performance.now();
+        //     const elapsed = currentTime - lastTime;
+            
+        //     frames++;
+            
+        //     if (elapsed > intervalTime + 5) { // 允许 5ms 的误差
+        //         drops++;
+        //         console.log(`掉帧: 实际间隔 ${elapsed.toFixed(2)}ms`);
+        //     }
+            
+        //     heavyOperation(); // 模拟耗时操作
+            
+        //     lastTime = currentTime;
+            
+        //     if (frames >= 300) { // 运行约 5 秒
+        //         clearInterval(intervalId);
+        //         console.log(`总帧数: ${frames}, 掉帧数: ${drops}`);
+        //         console.log(`掉帧率: ${(drops / frames * 100).toFixed(2)}%`);
+        //     }
+        // }, intervalTime);
+    </script>
+</head>
+<body>
+    <div id="test"></div>
+    <div id="test2"></div>
+</body>
+</html>
